@@ -30,19 +30,7 @@
   <body>
     <!-- Add your site or application content here -->
     <h1>웹프로그래밍 강의</h1>
-    <ul>
-        <li><a href="./lecture-list.html"><h2>목록</h2></a></li>
-        <li><a href="./lecture-table.html"><h2>테이블</h2></a></li>
-        <li><a href="./lecture-form.html"><h2>입력 컨트롤</h2></a></li>
-        <li><a href="./lecture-storage.html"><h2>저장소</h2></a></li>
-        <li><a href="./lecture-embed.html"><h2>embed & iframe</h2></a></li>
-        <li><a href="./lecture-webapi.html"><h2>web api</h2></a></li>
-        <li><a href="./lecture-async.html"><h2>Async</h2></a></li>
-        <li><a href="./lecture-array.html"><h2>Array</h2></a></li>
-        <li><a href="./lecture-random.html"><h2>Math</h2></a></li>
-        <li><a href="./lecture-lotto.html"><h2>Lotto</h2></a></li>
-    </ul>
-    
+
     <script src="js/vendor/modernizr-3.11.2.min.js"></script>
     <script src="js/plugins.js"></script>
     <script
@@ -51,6 +39,30 @@
       crossorigin="anonymous"
     ></script>
     <script src="js/main.js"></script>
+    <script>
+      // Math.random(): 0 ~ 1 사이의 난수를 생성
+      const rand = Math.random();
+      console.log(rand);
+
+      // 최소 1부터 최대 10까지의 랜덤한 수 생성
+      console.log(rand * 10 + 1);
+      const zeroToTen = rand * 10 + 1;
+
+      // 올림
+      console.log(Math.ceil(zeroToTen));
+      // 반올림
+      console.log(Math.round(zeroToTen));
+      // 내림
+      console.log(Math.floor(zeroToTen));
+
+      function getRandomIntInclusive(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min; //최댓값도 포함, 최솟값도 포함
+      }
+
+      console.log(Math.abs(1 - 2));
+    </script>
 
     <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
     <script>

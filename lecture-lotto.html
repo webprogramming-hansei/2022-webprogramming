@@ -30,19 +30,7 @@
   <body>
     <!-- Add your site or application content here -->
     <h1>웹프로그래밍 강의</h1>
-    <ul>
-        <li><a href="./lecture-list.html"><h2>목록</h2></a></li>
-        <li><a href="./lecture-table.html"><h2>테이블</h2></a></li>
-        <li><a href="./lecture-form.html"><h2>입력 컨트롤</h2></a></li>
-        <li><a href="./lecture-storage.html"><h2>저장소</h2></a></li>
-        <li><a href="./lecture-embed.html"><h2>embed & iframe</h2></a></li>
-        <li><a href="./lecture-webapi.html"><h2>web api</h2></a></li>
-        <li><a href="./lecture-async.html"><h2>Async</h2></a></li>
-        <li><a href="./lecture-array.html"><h2>Array</h2></a></li>
-        <li><a href="./lecture-random.html"><h2>Math</h2></a></li>
-        <li><a href="./lecture-lotto.html"><h2>Lotto</h2></a></li>
-    </ul>
-    
+
     <script src="js/vendor/modernizr-3.11.2.min.js"></script>
     <script src="js/plugins.js"></script>
     <script
@@ -51,6 +39,75 @@
       crossorigin="anonymous"
     ></script>
     <script src="js/main.js"></script>
+
+    <script>
+      let lottoBalls = new Array(45).fill(0);
+      let pickBalls = [];
+
+      lottoBalls = lottoBalls.map((ball, idx) => {
+        return idx + 1;
+      });
+
+      function getRandomIntInclusive(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min; //최댓값도 포함, 최솟값도 포함
+      }
+
+      for (let i = 0; i < 6; i++) {
+        const randIndex = getRandomIntInclusive(0, lottoBalls.length - 1);
+        const pickNo = lottoBalls.splice(randIndex, 1);
+        pickBalls.push(pickNo[0]);
+      }
+
+      const sortArray = pickBalls.sort((a, b) => {
+        if (a > b) {
+          return 1;
+        } else if (a < b) {
+          return -1;
+        } else {
+          return 0;
+        }
+      });
+
+      console.log(sortArray);
+
+
+      /**
+      const lottoNumbers = [];
+      function getRandomIntInclusive(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min; //최댓값도 포함, 최솟값도 포함
+      }
+
+      function getUniqueNo(array) {
+        let lottoNo = getRandomIntInclusive(1, 45);
+        while (array.includes(lottoNo)) {
+          lottoNo = getRandomIntInclusive(1, 45);
+        }
+
+        return lottoNo;
+      }
+
+      for (let i = 0; i < 6; i++) {
+        let lottoNo = getUniqueNo(lottoNumbers);
+        lottoNumbers.push(lottoNo);
+      }
+
+      const sortArray = lottoNumbers.sort((a, b) => {
+        if (a > b) {
+          return 1;
+        } else if (a < b) {
+          return -1;
+        } else {
+          return 0;
+        }
+      });
+
+      console.log(lottoNumbers);
+      */
+    </script>
 
     <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
     <script>
